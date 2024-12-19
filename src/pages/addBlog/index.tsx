@@ -1,29 +1,23 @@
 import { useState } from "react";
 import { Form, Input, Button } from "antd";
-import { addSingleBlog } from "../../api/blogs/addBlog";
+import { useAddBlog } from "../../hooks/useAddBlog";
 
 export const AddSingleBlog = () => {
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { addBlog, error: mutationError } = useAddBlog();
 
-  const onFinish = async (values: {
-    title_en: string;
-    description_en: string;
-  }) => {
-    setLoading(true);
+  const onFinish = (values: { title_en: string; description_en: string }) => {
     setError(null);
-    try {
-      await addSingleBlog(values);
-
-      alert("Blog added successfully!");
-    } catch (error) {
-      if (error instanceof Error) {
-        setError(error.message);
-      }
-    } finally {
-      setLoading(false);
-    }
+    addBlog(values);
   };
+
+  if (mutationError) {
+    setError(
+      mutationError instanceof Error
+        ? mutationError.message
+        : "An error occurred"
+    );
+  }
 
   return (
     <div>
@@ -53,7 +47,7 @@ export const AddSingleBlog = () => {
         </Form.Item>
 
         <Form.Item>
-          <Button type="primary" htmlType="submit" loading={loading}>
+          <Button type="primary" htmlType="submit">
             Add Blog
           </Button>
         </Form.Item>
