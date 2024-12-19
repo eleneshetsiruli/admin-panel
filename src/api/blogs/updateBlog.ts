@@ -1,14 +1,10 @@
 import { supabase } from "../../supabase/account";
 
-export const updateBlog = async ({
-  id,
-  title_en,
-  description_en,
-}: {
-  id: string;
-  title_en: string;
-  description_en: string;
-}): Promise<void> => {
+export const updateBlog = async (
+  id: string,
+  title_en: string | undefined,
+  description_en: string | undefined
+) => {
   const { error } = await supabase
     .from("blogs")
     .update({ title_en, description_en })

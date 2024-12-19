@@ -1,6 +1,6 @@
 import React from "react";
 import type { MenuProps } from "antd";
-import { Layout, Menu, theme } from "antd";
+import { Layout, Menu } from "antd";
 import { Link, Outlet } from "react-router-dom";
 
 const { Header, Content, Sider } = Layout;
@@ -31,39 +31,29 @@ const items2: MenuProps["items"] = [
 ];
 
 export const AdminLayout: React.FC = () => {
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
-
   return (
-    <Layout>
-      <Header style={{ display: "flex", alignItems: "center" }}>
-        <div className="demo-logo" />
+    <Layout className="min-h-screen">
+      <Header className="flex items-center bg-gray-800">
+        <div className="demo-logo mr-4" />
         <Menu
           theme="dark"
           mode="horizontal"
           defaultSelectedKeys={["2"]}
-          style={{ flex: 1, minWidth: 0 }}
+          className="flex-1 min-w-0"
         />
       </Header>
-      <Content style={{ padding: "0 48px" }}>
-        <Layout
-          style={{
-            padding: "24px 0",
-            background: colorBgContainer,
-            borderRadius: borderRadiusLG,
-          }}
-        >
-          <Sider style={{ background: colorBgContainer }} width={200}>
+      <Content className="px-12 py-6">
+        <Layout className="bg-gray-100 p-6 rounded-lg shadow-md">
+          <Sider className="bg-gray-100" width={200}>
             <Menu
               mode="inline"
               defaultSelectedKeys={["1"]}
               defaultOpenKeys={["sub1"]}
-              style={{ height: "100%" }}
+              className="h-full"
               items={items2}
             />
           </Sider>
-          <Content style={{ padding: "0 24px", minHeight: 280 }}>
+          <Content className="px-6 py-6 min-h-[280px]">
             <Outlet />
           </Content>
         </Layout>
