@@ -1,8 +1,10 @@
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { logIn } from "../../supabase/auth";
+import { useAuthContext } from "../../context/auth/use-auth-context";
 
 export const useLogin = () => {
+  const { handleSetUser } = useAuthContext();
   const navigate = useNavigate();
 
   const {
@@ -12,8 +14,17 @@ export const useLogin = () => {
   } = useMutation({
     mutationKey: ["logIn"],
     mutationFn: logIn,
-    onSuccess: () => {
-      navigate("admin/dashboard");
+    onSuccess: (response) => {
+      const session = {
+        access_token: response.token,
+        refresh_token: "",
+        expires_in: 3600,
+        token_type: "Bearer",
+        user: response.user,
+      };
+
+      handleSetUser(session);
+      navigate("/admin/dashboard");
     },
     onError: (error) => {
       console.error(error);

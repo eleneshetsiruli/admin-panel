@@ -4,8 +4,9 @@ import { useAuthContext } from "../../context/auth/use-auth-context";
 
 export const AuthGuard: React.FC<PropsWithChildren> = ({ children }) => {
   const { user } = useAuthContext();
-  if (user) {
-    return <Navigate to={"dashboard"} />;
+
+  if (!user) {
+    return <Navigate to="/" />;
   }
 
   return children || <Outlet />;
