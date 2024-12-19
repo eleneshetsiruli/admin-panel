@@ -22,13 +22,8 @@ export const BlogsList = () => {
     navigate("/admin/dashboard/addBlog");
   };
 
-  console.log(data);
   return (
-    <Table
-      dataSource={tableData}
-      rowKey={(record) => record.email || record.createdAt}
-      bordered
-    >
+    <Table dataSource={tableData} rowKey={(record) => record.id} bordered>
       <Column title="title_en" dataIndex="title_en" />
       <Column title="description" dataIndex="description_en" />
       <Column title="created At" dataIndex="created_at" />
