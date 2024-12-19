@@ -21,59 +21,12 @@ function App() {
           </AuthGuard>
         }
       >
-        <Route
-          path="dashboard"
-          element={
-            <AuthGuard>
-              <Dashboard />
-            </AuthGuard>
-          }
-        />
-
-        <Route
-          path="dashboard/editUser/:id"
-          element={
-            <AuthGuard>
-              <EditUser />
-            </AuthGuard>
-          }
-        />
-
-        <Route
-          path="dashboard/blogs"
-          element={
-            <AuthGuard>
-              <BlogsList />
-            </AuthGuard>
-          }
-        />
-
-        <Route
-          path="dashboard/addUser"
-          element={
-            <AuthGuard>
-              <AddUser />
-            </AuthGuard>
-          }
-        />
-
-        <Route
-          path="dashboard/addBlog"
-          element={
-            <AuthGuard>
-              <AddSingleBlog />
-            </AuthGuard>
-          }
-        />
-
-        <Route
-          path="dashboard/editBlog/:id"
-          element={
-            <AuthGuard>
-              <EditBlog />
-            </AuthGuard>
-          }
-        />
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="dashboard/editUser/:id" element={<EditUser />} />
+        <Route path="dashboard/blogs" element={<BlogsList />} />
+        <Route path="dashboard/addUser" element={<AddUser />} />
+        <Route path="dashboard/addBlog" element={<AddSingleBlog />} />
+        <Route path="dashboard/editBlog/:id" element={<EditBlog />} />
       </Route>
       <Route path="/" element={<SignIn />} />
     </Routes>

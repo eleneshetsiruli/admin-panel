@@ -2,11 +2,7 @@ import React from "react";
 import { Button, Form, Input, message } from "antd";
 import { useMutation } from "@tanstack/react-query";
 import { createUser } from "../../api/admin/createUser";
-
-type FieldType = {
-  email: string;
-  phone: string;
-};
+import { FieldType } from "./interfaces";
 
 export const AddUser: React.FC = () => {
   const mutation = useMutation({
