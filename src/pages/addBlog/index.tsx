@@ -2,7 +2,7 @@ import { Form, Input, Button } from "antd";
 import { useAddBlog } from "../../hooks/useAddBlog";
 import { AddBlogValues } from "./interfaces";
 
-export const AddSingleBlog = () => {
+const AddSingleBlog = () => {
   const { addBlog, error } = useAddBlog();
 
   const onFinish = (values: AddBlogValues) => {
@@ -49,3 +49,4 @@ export const AddSingleBlog = () => {
     </div>
   );
 };
+export default AddSingleBlog;

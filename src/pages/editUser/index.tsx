@@ -1,5 +1,6 @@
 import { UpdateUserForm } from "../../components/form";
 
-export const EditUser = () => {
+const EditUser = () => {
   return <UpdateUserForm />;
 };
+export default EditUser;

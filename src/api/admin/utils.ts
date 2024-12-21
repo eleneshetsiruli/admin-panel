@@ -4,7 +4,9 @@ import dayjs from "dayjs";
 export const mapUsersListForAdmin = (users: User[]) => {
   return users.map((user) => ({
     email: user?.email,
-    createdAt: user?.created_at,
+    createdAt: user?.created_at
+      ? dayjs(user?.created_at).format("YYYY-MM-DD HH:mm")
+      : "",
     phone: user?.phone,
     lastSignIn: user?.last_sign_in_at
       ? dayjs(user?.last_sign_in_at).format("YYYY-MM-DD HH:mm")

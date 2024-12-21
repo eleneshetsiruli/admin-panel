@@ -3,7 +3,7 @@ import { Button, Form, Input } from "antd";
 import { useCreateUser } from "../../hooks/useCreateUser";
 import { FieldType } from "./interfaces";
 
-export const AddUser: React.FC = () => {
+const AddUser: React.FC = () => {
   const { mutate } = useCreateUser();
 
   const onFinish = (values: FieldType) => {
@@ -39,3 +39,4 @@ export const AddUser: React.FC = () => {
     </Form>
   );
 };
+export default AddUser;

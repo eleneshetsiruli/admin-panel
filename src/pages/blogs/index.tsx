@@ -6,7 +6,7 @@ import { mapBlogsListForAdmin } from "./utils";
 import { EditOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
-export const BlogsList = () => {
+const BlogsList = () => {
   const { data } = useQuery({
     queryKey: ["blogs"],
     queryFn: fetchBlogs,
@@ -51,3 +51,4 @@ export const BlogsList = () => {
     </Table>
   );
 };
+export default BlogsList;

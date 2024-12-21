@@ -5,7 +5,7 @@ import { Loading } from "../../loading";
 import { Button, Form, Input } from "antd";
 import { useUpdateBlogMutation } from "../../../hooks/useUpdateBlog";
 
-export const EditBlog = () => {
+const EditBlog = () => {
   const { id } = useParams();
   const { data, isLoading, isError } = useFetchBlogById(id);
   const { mutate } = useUpdateBlogMutation(id!);
@@ -51,3 +51,5 @@ export const EditBlog = () => {
     </Form>
   );
 };
+
+export default EditBlog;
