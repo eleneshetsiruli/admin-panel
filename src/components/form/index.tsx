@@ -13,7 +13,7 @@ export const UpdateUserForm: React.FC = () => {
   const mutation = useUpdateUser(id!);
 
   const onFinish: FormProps<{ email: string; phone: string }>["onFinish"] = (
-    values
+    values,
   ) => {
     if (values.email && values.phone) {
       mutation.mutate(values);
