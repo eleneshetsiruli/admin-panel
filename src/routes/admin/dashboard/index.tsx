@@ -2,15 +2,13 @@ import { Route } from "react-router-dom";
 import { AuthGuard } from "../../../route-guards/auth";
 import { AdminLayout } from "../../../pages/admin-layout";
 import { Dashboard } from "../../../pages/admin-layout/dashboard";
-import { lazy } from "react";
 import { SuspenseWrapper } from "../../suspense";
 import { ADMIN_PATHS } from "./enum/index.enum";
-
-const LazyEditUser = lazy(() => import("../../../pages/editUser"));
-const LazyBlogsList = lazy(() => import("../../../pages/blogs"));
-const LazyAddUser = lazy(() => import("../../../pages/addUser"));
-const LazyAddSingleBlog = lazy(() => import("../../../pages/addBlog"));
-const LazyEditBlog = lazy(() => import("../../../pages/blogs/editBlog"));
+import { LazyEditUser } from "./editUser";
+import { LazyAddUser } from "./addUser";
+import { LazyBlogsList } from "./blogsList";
+import { LazyAddSingleBlog } from "./addSingleBlog";
+import { LazyEditBlog } from "./editBlog";
 
 export const DASHBORD_ROUTES = [
   <Route
