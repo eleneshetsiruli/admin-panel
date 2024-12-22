@@ -1,9 +1,7 @@
+import { Blog } from "../../pages/blogs/interfaces";
 import { supabase } from "../../supabase/account";
 
-export const addSingleBlog = async (values: {
-  title_en: string;
-  description_en: string;
-}) => {
+export const addSingleBlog = async (values: Blog) => {
   const { title_en, description_en } = values;
 
   const { data, error } = await supabase

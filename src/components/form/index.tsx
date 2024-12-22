@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useGetUser } from "../../api/admin/interfaces/hooks/useGetUser";
 import { Loading } from "../../pages/loading";
 import { useUpdateUser } from "../../hooks/useUpdateUser";
+import { userProps } from "./interfaces";
 
 export const UpdateUserForm: React.FC = () => {
   const { id } = useParams();
@@ -12,9 +13,7 @@ export const UpdateUserForm: React.FC = () => {
 
   const mutation = useUpdateUser(id!);
 
-  const onFinish: FormProps<{ email: string; phone: string }>["onFinish"] = (
-    values,
-  ) => {
+  const onFinish: FormProps<userProps>["onFinish"] = (values) => {
     if (values.email && values.phone) {
       mutation.mutate(values);
     }
