@@ -1,6 +1,7 @@
 import { useMutation, UseMutationResult } from "@tanstack/react-query";
 import { updateUserInAdmin } from "../../api/admin/updateUserInAdmin";
 import { UpdateUserResponse, UpdateUserVariables } from "./types";
+import { USERS_QUERY_KEYS } from "../../routes/users/enum";
 
 export const useUpdateUser = (
   id: string
@@ -11,7 +12,7 @@ export const useUpdateUser = (
   unknown
 > => {
   return useMutation<UpdateUserResponse, Error, UpdateUserVariables>({
-    mutationKey: ["updateUser", id],
+    mutationKey: [USERS_QUERY_KEYS.UPDATE, id],
     mutationFn: (values: UpdateUserVariables) => {
       return updateUserInAdmin(id, values);
     },

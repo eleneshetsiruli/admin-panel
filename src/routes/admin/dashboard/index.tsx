@@ -11,6 +11,7 @@ import { EditBlogRoute } from "./editBlog";
 
 export const DASHBORD_ROUTES = [
   <Route
+    key="admin"
     path="admin"
     element={
       <AuthGuard>
