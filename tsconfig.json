@@ -9,6 +9,7 @@
     "esModuleInterop": true,
     "target": "ESNext",
     "module": "ESNext",
-    "strict": true
+    "strict": true,
+    "noImplicitAny": false
   }
 }

@@ -5,17 +5,18 @@ import { useNavigate } from "react-router-dom";
 import { useUsersList } from "../../../hooks/useUsersList";
 import { Loading } from "../../loading";
 import { navigateToUserAdd, navigateToUserEdit } from "./utils";
+import { User } from "@supabase/supabase-js";
 
 export const Dashboard = () => {
-  const { data, error, isLoading } = useUsersList();
+  const { data, error, isLoading } = useUsersList<User[]>();
   const navigate = useNavigate();
   const { Column } = Table;
 
   if (isLoading) return <Loading text="data" />;
   if (error instanceof Error) return <div>Error: {error.message}</div>;
   if (!data) return <div>No data available</div>;
-
-  const tableData = mapUsersListForAdmin(data.users);
+  console.log(data);
+  const tableData = mapUsersListForAdmin(data);
 
   return (
     <div className="h-[80vh]">
