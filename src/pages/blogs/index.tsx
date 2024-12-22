@@ -1,26 +1,23 @@
-import { useQuery } from "@tanstack/react-query";
-import { Table } from "antd";
+import { Table, Spin, Alert } from "antd";
 import Column from "antd/es/table/Column";
-import { fetchBlogs } from "../../api/blogs/fetchBlogs";
-import { mapBlogsListForAdmin } from "./utils";
 import { EditOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+import { useBlogs } from "../../hooks/useBlogs";
 
 const BlogsList = () => {
-  const { data } = useQuery({
-    queryKey: ["blogs"],
-    queryFn: fetchBlogs,
-  });
+  const { tableData, isLoading, isError } = useBlogs();
   const navigate = useNavigate();
 
   const handleNavigateToBlogEdit = (id: number) => {
     navigate(`/admin/dashboard/editBlog/${id}`);
   };
 
-  const tableData = data ? mapBlogsListForAdmin(data) : [];
   const handleNavigateToBlogAdd = () => {
     navigate("/admin/dashboard/addBlog");
   };
+
+  if (isLoading) return <Spin size="large" />;
+  if (isError) return <Alert message="Error" type="error" />;
 
   return (
     <Table dataSource={tableData} rowKey={(record) => record.id} bordered>
@@ -51,4 +48,5 @@ const BlogsList = () => {
     </Table>
   );
 };
+
 export default BlogsList;
