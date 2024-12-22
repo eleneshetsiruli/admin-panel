@@ -1,10 +1,10 @@
-import BlogsList from "../../../../pages/blogs";
+import { lazy } from "react";
 import { SuspenseWrapper } from "../../../suspense";
 
-const LazyBlogsListPage = () => (
+const LazyBlogsList = lazy(() => import("../../../../pages/blogs"));
+
+export const BlogsListRoute = (
   <SuspenseWrapper>
-    <BlogsList />
+    <LazyBlogsList />
   </SuspenseWrapper>
 );
-
-export default LazyBlogsListPage;

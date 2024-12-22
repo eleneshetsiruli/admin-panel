@@ -1,2 +1,10 @@
 import { lazy } from "react";
-export const LazyEditUser = lazy(() => import("../../../../pages/editUser"));
+import { SuspenseWrapper } from "../../../suspense";
+
+const LazyEditUser = lazy(() => import("../../../../pages/editUser"));
+
+export const EditUserRoute = (
+  <SuspenseWrapper>
+    <LazyEditUser />
+  </SuspenseWrapper>
+);
