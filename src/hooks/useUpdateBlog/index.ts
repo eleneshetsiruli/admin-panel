@@ -5,7 +5,7 @@ import { UpdateBlogResponse } from "../../api/blogs/types";
 import { BLOGS_QUERY_KEYS } from "../../routes/blogs/enum";
 
 export const useUpdateBlogMutation = (
-  id: string
+  id: string,
 ): UseMutationResult<UpdateBlogResponse, Error, FieldType, unknown> => {
   return useMutation<UpdateBlogResponse, Error, FieldType>({
     mutationKey: [BLOGS_QUERY_KEYS.UPDATE, id],

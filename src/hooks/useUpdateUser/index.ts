@@ -4,7 +4,7 @@ import { UpdateUserResponse, UpdateUserVariables } from "./types";
 import { USERS_QUERY_KEYS } from "../../routes/users/enum";
 
 export const useUpdateUser = (
-  id: string
+  id: string,
 ): UseMutationResult<
   UpdateUserResponse,
   Error,

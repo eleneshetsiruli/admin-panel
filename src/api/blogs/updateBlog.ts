@@ -4,7 +4,7 @@ import { UpdateBlogResponse } from "./types";
 export const updateBlog = async (
   id: string,
   title_en: string | undefined,
-  description_en: string | undefined
+  description_en: string | undefined,
 ): Promise<UpdateBlogResponse> => {
   const { error } = await supabase
     .from("blogs")

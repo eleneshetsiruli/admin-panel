@@ -3,7 +3,7 @@ import { supabase } from "../../supabase/account";
 
 export const updateUserInAdmin = async (
   id: string,
-  payload: { email: string; phone: string }
+  payload: { email: string; phone: string },
 ): Promise<UpdateUserResponse> => {
   const { error } = await supabase.auth.admin.updateUserById(id, {
     ...payload,
