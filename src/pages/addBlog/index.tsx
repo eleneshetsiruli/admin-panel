@@ -1,11 +1,11 @@
 import { Form, Input, Button } from "antd";
 import { useAddBlog } from "../../hooks/useAddBlog";
-import { AddBlogValues } from "./interfaces";
+import { Blog } from "../blogs/interfaces";
 
 const AddSingleBlog = () => {
   const { addBlog, error } = useAddBlog();
 
-  const onFinish = (values: AddBlogValues) => {
+  const onFinish = (values: Blog) => {
     addBlog(values);
   };
 
