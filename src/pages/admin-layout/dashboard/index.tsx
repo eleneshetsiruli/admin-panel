@@ -15,7 +15,7 @@ export const Dashboard = () => {
   if (isLoading) return <Loading text="data" />;
   if (error instanceof Error) return <div>Error: {error.message}</div>;
   if (!data) return <div>No data available</div>;
-  console.log(data);
+
   const tableData = mapUsersListForAdmin(data);
 
   return (

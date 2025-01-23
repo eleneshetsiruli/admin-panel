@@ -8,6 +8,8 @@ import { AddUserRoute } from "./addUser";
 import { BlogsListRoute } from "./blogsList";
 import { AddBlogRoute } from "./addSingleBlog";
 import { EditBlogRoute } from "./editBlog";
+import { HotelView } from "../../../pages/hotels";
+import { EditHotel } from "../../../pages/editHotel";
 
 export const DASHBORD_ROUTES = [
   <Route
@@ -26,6 +28,10 @@ export const DASHBORD_ROUTES = [
     <Route path={ADMIN_PATHS.DASHBOARD_ADDUSER} element={AddUserRoute} />
 
     <Route path={ADMIN_PATHS.DASHBOARD_ADDBLOGS} element={AddBlogRoute} />
+
+    <Route path={ADMIN_PATHS.DASHBOARD_HOTELS} element={<HotelView />} />
+
+    <Route path={ADMIN_PATHS.DASHBOARD_EDITHOTEL} element={<EditHotel />} />
 
     <Route
       path={ADMIN_PATHS.DASHBOARD_EDITBLOG + "/:id"}

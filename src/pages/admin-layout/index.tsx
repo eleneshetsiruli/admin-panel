@@ -28,6 +28,18 @@ const items2: MenuProps["items"] = [
       },
     ],
   },
+
+  {
+    key: "hotels",
+    label: "Hotels",
+
+    children: [
+      {
+        key: 2,
+        label: <Link to="dashboard/hotels">Hotels List</Link>,
+      },
+    ],
+  },
 ];
 
 export const AdminLayout: React.FC = () => {
