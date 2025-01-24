@@ -4,7 +4,7 @@ import { HOTELS_QUERY_KEYS } from "../../routes/hotels/enum";
 import { Hotel, UpdateHotelPayload } from "./types";
 
 export const useUpdateHotel = (
-  options?: UseMutationOptions<Hotel[], Error, UpdateHotelPayload>
+  options?: UseMutationOptions<Hotel[], Error, UpdateHotelPayload>,
 ) => {
   return useMutation<Hotel[], Error, UpdateHotelPayload>({
     mutationKey: [HOTELS_QUERY_KEYS.UPDATE],

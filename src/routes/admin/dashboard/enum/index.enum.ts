@@ -7,4 +7,5 @@ export enum ADMIN_PATHS {
   DASHBOARD_HOTELS = "dashboard/hotels",
   DASHBOARD = "dashboard",
   DASHBOARD_EDITHOTEL = "/admin/dashboard/editHotel/:id",
+  DASHBOARD_ADDHOTEL = "/admin/dashboard/addHotel",
 }

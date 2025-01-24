@@ -10,6 +10,7 @@ import { AddBlogRoute } from "./addSingleBlog";
 import { EditBlogRoute } from "./editBlog";
 import { HotelView } from "../../../pages/hotels";
 import { EditHotel } from "../../../pages/editHotel";
+import { AddHotel } from "../../../pages/addHotel";
 
 export const DASHBORD_ROUTES = [
   <Route
@@ -32,6 +33,8 @@ export const DASHBORD_ROUTES = [
     <Route path={ADMIN_PATHS.DASHBOARD_HOTELS} element={<HotelView />} />
 
     <Route path={ADMIN_PATHS.DASHBOARD_EDITHOTEL} element={<EditHotel />} />
+
+    <Route path={ADMIN_PATHS.DASHBOARD_ADDHOTEL} element={<AddHotel />} />
 
     <Route
       path={ADMIN_PATHS.DASHBOARD_EDITBLOG + "/:id"}

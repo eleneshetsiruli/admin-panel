@@ -22,7 +22,7 @@ export const EditHotel = () => {
         onError: (err) => {
           alert(`Error updating hotel: ${err.message}`);
         },
-      }
+      },
     );
   };
 
