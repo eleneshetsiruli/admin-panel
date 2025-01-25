@@ -1,27 +1,30 @@
-import React, { useState } from "react";
-import { Form, Input, Button, Alert } from "antd";
-import { useAddHotel } from "../../hooks/useAddHotel";
 import { useNavigate } from "react-router-dom";
+import { useAddHotel } from "../../hooks/useAddHotel";
+import { useState } from "react";
 import { AddHotelValues } from "../../hooks/useAddHotel/types";
 import { ADMIN_PATHS } from "../../routes/admin/dashboard/enum/index.enum";
+import { Alert, Button, Form, Input } from "antd";
 
 export const AddHotel: React.FC = () => {
   const navigate = useNavigate();
   const { mutate: addHotel, isError, error } = useAddHotel();
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (values: AddHotelValues) => {
+  const handleSubmit = (values: AddHotelValues) => {
     setLoading(true);
 
-    try {
-      await addHotel(values);
-      alert("Hotel added successfully!");
-      navigate(ADMIN_PATHS.DASHBOARD_HOTELS);
-    } catch (err) {
-      alert(`Error adding hotel: ${(err as Error).message}`);
-    } finally {
-      setLoading(false);
-    }
+    addHotel(values, {
+      onSuccess: () => {
+        alert("Hotel added successfully!");
+        navigate(ADMIN_PATHS.HOTELS);
+      },
+      onError: (err: unknown) => {
+        alert(`Error adding hotel: ${(err as Error).message}`);
+      },
+      onSettled: () => {
+        setLoading(false);
+      },
+    });
   };
 
   return (
