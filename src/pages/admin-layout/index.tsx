@@ -46,6 +46,7 @@ export const AdminLayout: React.FC = () => {
   return (
     <Layout className="min-h-screen">
       <Header className="flex items-center bg-gray-800">
+        <h1 className="text-lg text-white">ExploreEra</h1>
         <div className="demo-logo mr-4" />
         <Menu
           theme="dark"
