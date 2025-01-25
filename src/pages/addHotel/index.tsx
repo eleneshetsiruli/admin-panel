@@ -29,7 +29,7 @@ export const AddHotel: React.FC = () => {
 
   return (
     <div style={{ maxWidth: "600px", margin: "0 auto" }}>
-      <h1>Add New Hotel</h1>
+      <h1>Add Hotel</h1>
 
       {isError && (
         <Alert message={`Error: ${error?.message}`} type="error" showIcon />
